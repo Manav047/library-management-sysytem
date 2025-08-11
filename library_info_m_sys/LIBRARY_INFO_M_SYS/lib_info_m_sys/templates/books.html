@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends "index_new.html" %}
+{% load static %}
+
+{% block main_content %}
+
+<div class="container-flex text-center justify-content-center align-item-center" style="background:lightblue; padding-top:10px; padding-bottom:20px; margin-top:10px; vertical-align:middle">
+    <div class="row justify-content-center align-middle" style="margin-top:10px; height:60px">
+        <div class="col-md-12 text-light" style="background:purple">
+            <h4 style="margin-top:15px">
+                Manage Books
+            </h4>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-12">
+            <div class="container" style="overflow-y:auto; height:400px; background:lightblue">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>Book ID</td>
+                            <td>Book Name</td>
+                            <td>Quantity</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                        <tr>
+                            <td>{{ book.id }}</td>
+                            <td>{{ book.name }}</td>
+                            <td>{{ book.quantity }}</td>
+                            <td>
+                                <form action="{% url 'update_book_quantity' book.id %}" method="POST" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" name="action" value="add" class="btn btn-success">Add</button>
+                                    <button type="submit" name="action" value="subtract" class="btn btn-danger">Subtract</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% extends "index_new.html" %}
+{% load static  %}
+
+{% block main_content %}
+
+<div class="container-flex text-center justify-contant-center align-item-center" style="background:lightblue padding_top:10px;padding-botton:20px;margin-top:10px;vertical-align:middle">
+    <div class="row justify-content-center align-middle" style="margin-top:10px;height:60px">
+        <div class="col-md-4 text-light" style="background:purple">
+            <h4 style="margin-top-15px">
+                Register new reader
+            </h4>
+        </div>
+        <div class="col-md-8">
+            <h4>
+                search readers
+            </h4>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="container" style="overflow-y:auto;height:600px;background:lightblue">
+                    <form class="d-flex" action="/readers/add" method="POST">
+                        {% csrf_token %}
+                        <table class="table" style="margin-top:20px">
+                            <tr>
+                                <td style="text-align:left;vertical-align:middle;padding-left:15px">Name: </td>
+                                <td><input type="text" class="form-control" name="reader_name"> </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left;vertical-align:middle;padding-left:15px">contact: </td>
+                                <td><input type="text" class="form-control" name="reader_contact"> </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left;vertical-align:middle;padding-left:15px">referece_id: </td>
+                                <td><input type="text" class="form-control" name="readers_ref_id">  </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left;vertical-align:middle;padding-left:15px">address : </td>
+                                <td><textarea type="text" class="form-control" name="readers_address"></textarea></td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button class="btn btn-primary" type="submit">save</button> </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <ul style="text-align:left">
+                        <li><small>reader should not register multiple times </small></li>
+                        <li><small>duplicate reader registration will be deactivate</small></li>
+                        <li><small>contact info provided must br correct </small></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="row">
+                    <nav class="navbar bg-body-light">
+                        <div class="container-fluid justify-content-center align-item-center">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                             </form>
+
+                        </div>
+
+                    </nav>
+                </div>
+                <div class="row" style="margin-top:20px">
+                    <p>{{readers}}readers subscribed.</p>
+                </div>
+                <div class="row" style="margin-top:20px">
+                    <div class="container" style="overflow-y:auto;height:400px">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <td>reader id</td>
+                                <td>name</td>
+                                <td>contact</td>
+                                <td>reference_id</td>
+                                <td>address</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for reader in readers %}
+                            <tr>
+                                <td>{{reader.id}}</td>
+                                <td>
+                                    {% if reader.active %}
+                                    <span class="btn btn-sucess">{{reader.name}}</span>
+                                    {% else %}
+                                    <span class="btn btn-secondary">{{reader.reader_name}}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{reader.reader_contact}}</td>
+                                <td>{{reader.referece_id}}</td>
+                                <td>{{reader.reader_address}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+Required Tools & Technologies
+
+	Python – Main programming language.
+
+	Django – Core web framework.
+	
+	ASGI / asgiref – For async capabilities.
+
+	XML – For project configs.
+
+	Git – Version control (.gitignore present).
+
+	PyCharm – IDE (.idea & .iml files).
+	
+Project Structure & Flow
+
+	Settings & Config – global_settings.py, AppConfig, config.py handle app setup.
+
+	Routing – i18n.py (internationalization URLs), static.py (static file serving).
+
+	WSGI/ASGI – Supports both sync (WSGI) and async (ASGI).
+
+	Async Handling – AsyncToSync, SyncToAsync, thread executors, stateless server base.
+
+	Internationalization (i18n) – Multiple formats.py files for locale-specific date/time formats; LANG_INFO for metadata.
+
+Current Error Handling
+
+	Configuration errors → ImproperlyConfigured.
+
+	Runtime issues → RuntimeError, TypeError, ValueError.
+
+	Model/Config lookup fails → LookupError.
+
+	Async timeouts/cancellations → asyncio.TimeoutError, asyncio.CancelledError.
+
+	Logging – Errors and warnings (including deprecations).
+
+Areas for Improvement
+
+	Better Logging & Monitoring – Structured logs + external monitoring integration.
+
+	Async Error Handling – More robust sync/async exception capture.
+
+	Performance – ASGI app pooling, thread pool tuning.
+
+	Security – Harden Django settings, validate inputs, secure credentials.
+
+	Docs & Type Hints – More docstrings, complete type annotations.
+
+	Testing – Expand coverage, especially for async & i18n features.
+
+	Dependency Management – Use requirements.txt or pyproject.toml.
+
+	Deployment – Document best practices (e.g., Uvicorn/Daphne).
+
+	Internationalization – Ensure complete formats and accurate LANG_INFO.
+
+	Deprecations – Remove outdated features per warnings.
+
+	

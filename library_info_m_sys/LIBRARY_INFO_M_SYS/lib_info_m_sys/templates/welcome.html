@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center; /* Center the navigation items */
+            padding: 10px 0; /* Add some padding */
+        }
+
+        nav h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px; /* Space between items */
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px; /* Add padding for clickable area */
+            border-radius: 5px; /* Add border radius */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        nav a:hover {
+            background-color: #00509e; /* Darker blue on hover */
+        }
+
+        .intro {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .browseBtn {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .benefits, .thought {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .key-benefits {
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>City Library</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#readers">Readers</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#my-bag">My Bag</a></li>
+                <li><a href="#returns">Returns</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Hello, readers!</h2>
+        <p>Welcome to City Library. We have a large collection of books to cater to the reading needs of all kinds of readers.</p>
+        <button onclick="browseCollection()">Browse our collection</button>
+
+        <section>
+            <h3>Why reading is important?</h3>
+            <p>Reading is good for you because it improves your focus, memory, empathy, and communication skills...</p>
+
+            <h3>Key Benefits</h3>
+            <ul>
+                <li>Increase your vocabulary and comprehension skills</li>
+                <li>Reduce stress</li>
+                <li>Improve mental health</li>
+                <li>Prevents cognitive decline</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Thought for the day</h3>
+            <blockquote>"Just don't give up trying to do what you really want to do..." – Ella Fitzgerald</blockquote>
+        </section>
+    </main>
+    <footer>
+        <p>© City Library 2023</p>
+    </footer>
+    <script>
+        function browseCollection() {
+            // Logic to browse the collection
+            alert("Browsing our collection...");
+        }
+    </script>
+</body>
+</html>
